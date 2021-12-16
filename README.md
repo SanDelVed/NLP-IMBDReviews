@@ -50,7 +50,7 @@ A su vez, las **librerías** a utilizar seran:
 2) wordcloud: librería que facilita la creación de nube de palabras, muy importante a los efectos del presente proyecto.
 3) matplotlib y seaborn: librerias de visualización de datos que facilitan la comprensión de la información mostrandola graficamente.
 4) re: libreria para utilizar expresiones regulares de forma de manipular texto y realizar la limpieza del mismo.
-5) nltk: librería muy utilizada en el nltk ya que ofrece métodos para eliminar palabras frecuentes y las raices de las palabras.
+5) nltk: librería muy utilizada en el NLP ya que ofrece métodos para trabajar con texto como eliminar palabras frecuentes y las raices de las palabras.
 6) sklearn: librería que cuenta con diferentes algoritmos de machine learning para el desarrollo de modelos.
 7) tkinter: librería que nos permite crear interfaces gráficas que ejecuten el código de manera mas amigable para el usuario.
 
