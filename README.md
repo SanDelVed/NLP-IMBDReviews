@@ -88,7 +88,30 @@ Lo último que realizamos para esta etapa del proyecto fue eliminar las **stopwo
 
 Una vez que contamos con el dataset totalmente optimizado, el siguiente paso es la creación del modelo y su entrenamiento. Es en esta instancia en donde entra en juego la libreria **sklearn** de la cual usaremos: **Pipeline,LogisticRegression, CountVectorizer,train_test_split,TfidTransformer**
 
-Una vez que tenemos importadas las librerías lo primero que hacemos es crear una variable llamada pipeline para instanciar la clase **Pipeline** para, de esta manera, gestionar el flujo de trabajo. Primero incluimos **('bow', CountVectorizer())** para que convierta la colección de reviews en una matriz de recuentos de tokens, es decir, toma todas las palabras existentes en el df (recordemos que ya estará optimizado) y, para cada reviews, cuenta cuantas veces aparece. En segundo lugar incluimos **('tfidf', TfidfTransformer())** que va a tomar el resultado de CountVectorizer y le va a asignar un peso relativo a cada palabra de acuerdo a la cantidad de veces que aparece en una misma review y la cantidad de veces que se repite en el resto de las review. En tercer lugar incluimos **('classifier', LogisticRegression(random_state = 42))** que es el modelo de clasificación que seleccionamos para este proyecto (tambien hicimos el mismo proceso con Random Forest 
+Una vez que tenemos importadas las librerías lo primero que hacemos es crear una variable llamada pipeline para instanciar la clase **Pipeline** para, de esta manera, gestionar el flujo de trabajo. Primero incluimos **('bow', CountVectorizer())** para que convierta la colección de reviews en una matriz de recuentos de tokens, es decir, toma todas las palabras existentes en el df (recordemos que ya estará optimizado) y, para cada reviews, cuenta cuantas veces aparece. En segundo lugar incluimos **('tfidf', TfidfTransformer())** que va a tomar el resultado de CountVectorizer y le va a asignar un peso relativo a cada palabra de acuerdo a la cantidad de veces que aparece en una misma review y la cantidad de veces que se repite en el resto de las review. En tercer lugar incluimos **('classifier', LogisticRegression(random_state = 42))** que es el modelo de clasificación que seleccionamos para este proyecto (tambien hicimos el mismo proceso con Random Forest y el resultado fue similar)
+
+Almacenamos en una variable **X** las reviews y en una variable **y** los resultados, para luego dividir cada conjunto de datos en subconjuntos de prueba y entrenamiento a traves del método **train_test_split** en donde indicamos que el 30% de los datos sea de prueba con **test_size=0.30**.
+
+Ya con el conjunto de datos dividido entrenamos el modelo con el método **fit()** guardandolo en una variable para despues realizar la predicción con el método **predict()** al cual le pasamos como parámetro el subconjunto de prueba (X_test).
+
+### 4. Evaluación del modelo
+
+Para evaluar el modelo tomamos las métricas de evaluación mas comunes para los modelos de clasificación como el que vimos, siendo estas las clases de sklearn **confusion_matrix y classification_report**.
+
+Dentro de la matriz de confusión vemos rapidamente que el modelo clasificó correctamente a la gran mayoría de las críticas. Esto se ve reflejado en todas las métricas que obtuvieron un resultado similar. A modo de ejemplo, el Accuracy del 90% nos indica que del total de datos de prueba el modelo acertó el 90% de las veces (13450/15000), a su vez del total de veces que el modelo indicó que la crítica era negativa acerto el 91% mientras que en las criticas positivas el acierto es de un 89%. 
+
+Consideramos que los resultados son lo suficientemente precisos para responder correctamente ante nuevas críticas. Lo que ocurre muchas veces en este tipo de trabajos, es que la crítica puede resultar ambigua incluso para un persona, entonces en esos casos puede ser que el modelo fallé pero en aquellas críticas que son relativamente comprensibles el modelo funcionará bien.
+
+### 5. Interfaz Gráfica
+
+A los efectos de que el modelo sea utilizado de manera facil e intuitiva por cualquier usuario, se nos ocurrio crear una interfaz gráfica capaz de recibir una nueva crítica y otorgar inmediatamente una devolución respecto al tipo de critica, es decir, si es una critica positiva o negativa. 
+
+Para la creación de la interfaz gráfica decidimos utilizar la librería **tkinter** y con ella lo primero que hacemos es instanciar un objeto, luego con los metodos **title()** y **geometry()** le ponemos un titulo y un tamaño, luego incluimos Labels, cuadro de texto y un botón con los métodos **Label(),Entry() y Button** y con el método **grid()** los ubicamos dentro del espacio (**Frame**).
+
+Lo mas importante es cómo indicar que al apretar el botón se ejecute una acción, en este caso, la clasificación de la crítica. Lo antes dicho se realiza con el parámetro **command** al cual se le indica la función a ejecutar, esta función la llamamos **clasificar_critica** que basicamente toma lo que el usuario ingresa en el cuadro de texto (Entre) a traves del método **get()**, lo almacena en una variable y se hace una predicción sobre el modelo entrenado pasandole la variable en donde esta almacenada la crítica. El resultado luego se ve en un espacio guardado para ello. 
+
+
+## Conclusiónes Finales
 
 
 
