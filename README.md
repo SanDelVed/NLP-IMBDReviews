@@ -86,6 +86,9 @@ Lo último que realizamos para esta etapa del proyecto fue eliminar las **stopwo
 
 ### 3. Creación y entrenamiento de modelo
 
+Una vez que contamos con el dataset totalmente optimizado, el siguiente paso es la creación del modelo y su entrenamiento. Es en esta instancia en donde entra en juego la libreria **sklearn** de la cual usaremos: **Pipeline,LogisticRegression, CountVectorizer,train_test_split,TfidTransformer**
+
+Una vez que tenemos importadas las librerías lo primero que hacemos es crear una variable llamada pipeline para instanciar la clase **Pipeline** para, de esta manera, gestionar el flujo de trabajo. Primero incluimos **('bow', CountVectorizer())** para que convierta la colección de reviews en una matriz de recuentos de tokens, es decir, toma todas las palabras existentes en el df (recordemos que ya estará optimizado) y, para cada reviews, cuenta cuantas veces aparece. En segundo lugar incluimos **('tfidf', TfidfTransformer())** que va a tomar el resultado de CountVectorizer y le va a asignar un peso relativo a cada palabra de acuerdo a la cantidad de veces que aparece en una misma review y la cantidad de veces que se repite en el resto de las review. En tercer lugar incluimos **('classifier', LogisticRegression(random_state = 42))**
 
 
 
