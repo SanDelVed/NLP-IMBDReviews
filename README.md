@@ -100,7 +100,7 @@ Para evaluar el modelo tomamos las métricas de evaluación mas comunes para los
 
 Dentro de la matriz de confusión vemos rapidamente que el modelo clasificó correctamente a la gran mayoría de las críticas. Esto se ve reflejado en todas las métricas que obtuvieron un resultado similar. A modo de ejemplo, el Accuracy del 90% nos indica que del total de datos de prueba el modelo acertó el 90% de las veces (13450/15000), a su vez del total de veces que el modelo indicó que la crítica era negativa acerto el 91% mientras que en las criticas positivas el acierto es de un 89%. 
 
-Consideramos que los resultados son lo suficientemente precisos para responder correctamente ante nuevas críticas. Lo que ocurre muchas veces en este tipo de trabajos, es que la crítica puede resultar ambigua incluso para un persona, entonces en esos casos puede ser que el modelo fallé pero en aquellas críticas que son relativamente comprensibles el modelo funcionará bien.
+Consideramos que los resultados son lo suficientemente precisos para responder correctamente ante nuevas críticas. Lo que ocurre muchas veces en este tipo de trabajos es que la crítica puede resultar ambigua incluso para un ser humano, entonces en esos casos puede ser que el modelo fallé pero en aquellas críticas que son relativamente comprensibles sabemos que el modelo funcionará bien.
 
 ### 5. Interfaz Gráfica
 
