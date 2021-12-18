@@ -63,13 +63,13 @@ A su vez, las **librerías** a utilizar seran:
 
 En este apartado buscaremos explicar paso a paso la notebook del proyecto final, de manera que se logré entender la lógica seguida y las lineas de código ejecutadas. Para eso iremos viendo cada una de las etapas descriptas previamente. 
 
-1) Lectura del dataset de IMDb.
+### 1) Lectura del dataset de IMDb.
 
 En este paso lo primero que se realizó fue la importación de la librería Pandas que, como se mencionó previamente, permite trabajar con datos tabulares y ofrece métodos muy utiles para la manipulación de tablas por lo que será de mucha utilidad a lo largo de todo el proyecto. 
 
 En segundo lugar se crea una variable llamada **df** que almacenara nuestro dataset, para eso se hace una lectura con el método de Pandas llamada **read_csv** al cual le indicamos el nombre que tiene el archivo en nuestra computadora. Además, a modo preventivo, le pasamos como parametro **encodigo="utf-8"** para unificar los diferentes formatos particulares creados en zonas distintas ya que, si bien las reviews estan en inglés, puede tener caracteres que distintas zonas, de esta manera no nos estaremos perdiendo de ninguno.
 
-2) Exploración y Limpieza de datos
+### 2) Exploración y Limpieza de datos
 
 En esta etapa se busca realizar una exploración para comprender el dataset con el que estamos trabajando, ver sus particularidades y en base a eso hacer la limpieza correspondiente para que quedé optimizado de cara al futuro.
 
@@ -82,6 +82,10 @@ muy util para la minupación de texto y creamos una **funcion** llamada **limpie
 
 Con la limpieza de las review volvemos a hacer la nube de palabras para corroborar que lo referido a los marcadores HTML fue eliminado y solo nos quedan palabras normalmente utilizadas en reviews de peliculas.
 
-Lo último que realizamos para esta etapa del proyecto fue eliminar las **stopwords** (palabras sin significado como artículos, pronombres, preposiciones, etc.) de las reviews para que el aprendizaje del modelo sea mas eficiente. Para ello utilizamos la librería **nltk** y el método **stopwords** de la misma. Creamos una variable llamada stopwords en donde le indicamos que las palabras vacias que queremos son en el idioma inglés. En este sentido creamos una **funcion** llamada **depuración** en donde lo que hacemos es: 
+Lo último que realizamos para esta etapa del proyecto fue eliminar las **stopwords** (palabras sin significado como artículos, pronombres, preposiciones, etc.) de las reviews para que el aprendizaje del modelo sea mas eficiente. Para ello utilizamos la librería **nltk** y el método **stopwords** de la misma. Creamos una variable llamada stopwords en donde le indicamos que las palabras vacias que queremos son en el idioma inglés. En este sentido creamos una **funcion** llamada **depuración** en donde lo que hacemos es: a traves de **nltk.tokenize.word_tokenize** para convertir una cadena de texto (en este caso una review) en un lista en donde cada elemento de la lista es una palabra de la cadena de texto (basicamente lo que hacemos es tokenizar un texto), despues con una **List comprehension** obtenemos una lista en donde solo se queda con las palabras (tokens) que no son stopwords (es un proceso similar al que hicimos en la función "limpieza" para crear la nube de palabras pero hecha de manera mas eficiente con una list comprehension). Una vez que contamos con la lista con todas las palabras que no son palabras vacías deshacemos la lista para que nos quede un string. Nuevamente con el metodo **apply** lo aplicamos a todas las reviews del dataset.
+
+### 3. Creación y entrenamiento de modelo
+
+
 
 
