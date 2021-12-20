@@ -35,10 +35,14 @@ A través de las diferentes lineas de código iremos respondiendo estas pregunta
 El proyecto se realizará íntegramente en una notebook con código Python, a modo de guía, los pasos que se seguirán serán los siguiente:
 
 1) Lectura del dataset de IMDb.
-2) Exploración y Limpieza de datos: a) Análisis de variable a predecir. b) Analisis de reviews con Nube de Palabras. c) Eliminación de marcadores HTML, emoticones irrelevantes. d) Obtención de palabras raíz mediante el algoritmo de Porter. e) Utilización de stopwords para eliminar palabras vacías.
-3) Creación y entrenamiento del modelo: a) Método LogisticRegression y b) Método RandomForestClassifier.
-4) Evaluación del modelo.
-5) Creación de Interfaz Gráfica para ingresar nuevas críticas y visualizar si las mismas corresponden a valoracioens positivas o negativas.
+2) Exploración y Limpieza de datos: 
+  a) Análisis de variable a predecir. 
+  b) Analisis de reviews con Nube de Palabras. 
+  c) Eliminación de marcadores HTML, emoticones irrelevantes.  
+  d) Utilización de stopwords para eliminar palabras vacías.
+4) Creación y entrenamiento del modelo: a) Método LogisticRegression y b) Método RandomForestClassifier.
+5) Evaluación del modelo.
+6) Creación de Interfaz Gráfica para ingresar nuevas críticas y visualizar si las mismas corresponden a valoracioens positivas o negativas.
 
 <br>
 
